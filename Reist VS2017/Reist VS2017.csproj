@@ -123,11 +123,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Funcionario\Controllers\HomeController.cs" />
     <Compile Include="Areas\Funcionario\FuncionarioAreaRegistration.cs" />
+    <Compile Include="Connection\Database.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Passagem.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,11 +182,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Funcionario\Models\" />
     <Folder Include="Content\Images\" />
+    <Folder Include="Views\Cliente\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

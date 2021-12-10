@@ -23,6 +23,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Funcionário", "Index", new { area = "Funcionario", controller = "Home" })</li>
+                    <li>@Html.ActionLink("Funcionário", "Index", new { area = "Funcionario", controller = "Home" })</li>
                 </ul>
             </div>
         </div>
@@ -31,6 +32,15 @@
         @RenderBody()
         <hr />
         <footer>
+            @if (Session["name"] == null)
+            {
+                <p>@Html.ActionLink("Login", "Login", "Login")</p>
+            }
+            else
+            {
+                <p>Olá @Session["name"]</p>
+                <p>@Html.ActionLink("Sair", "Logout", "Login")</p>
+            }
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

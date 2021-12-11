@@ -23,6 +23,23 @@ namespace Reist_VS2017.Models
 
         public Cliente() { }
 
+        public void Inserir()
+        {
+            Hash hash = new Hash(SHA512.Create());
+
+            using (Database DB = new Database())
+            {
+                var query = string.Format("call cadastrar_cliente({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', {7}, '{8}', " +
+                    "'{9}', '{10}', '{11}','{12}');", this.cpf, this.nome, this.email, hash.Criptografar(this.senha), this.celular, this.sexo, this.nascimento,
+                    this.endereco.cep, this.endereco.logradouro, this.endereco.bairro, this.endereco.cidade, this.endereco.uf, this.endereco.numero);
+
+                MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+                cmd.ExecuteNonQuery();
+
+                //return this;
+            }
+        }
+
         public bool Autenticar()
         {
             using (Database database = new Database())

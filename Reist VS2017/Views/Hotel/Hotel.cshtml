@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    @using (Html.BeginForm("ListarHotel", "Hotel", FormMethod.Get))
+    {
+        <input type="date" name="checkin" placeholder="Data de entrada" />
+        <input type="date" name="checkount" placeholder="Data de saída" />
+        <input type="text" name="destino" placeholder="Informe o lugar do hotel" />
+        <input type="submit" value="Enviar" class="btn btn-default" />
+    }
+</div>

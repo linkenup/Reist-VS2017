@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Reist_VS2017.Models.Hotel>
+
+@{
+    ViewBag.Title = "Consulta";
+}
+
+<h2>Registros de clientes no sistema!</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.endereco.logradouro)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    <label class="cpf">@Html.DisplayFor(modelItem => item.endereco.logradouro)</label>
+                </td>
+                <td style="text-align: right">
+                    <a type="button" class="btn btn-primary" target="_blank" href="@Url.Action("ListarQuarto", "Quarto", new { id = item.cnpj })">Ver Quartos</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

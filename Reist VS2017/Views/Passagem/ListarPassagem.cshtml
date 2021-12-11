@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Reist_VS2017.Models.Passagem>
+
+@{
+    ViewBag.Title = "Consulta";
+}
+
+<h2>Registros de clientes no sistema!</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.assentos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.destino.sigla)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.assentos)
+                </td>
+                <td>
+                    <label class="cpf">@Html.DisplayFor(modelItem => item.destino.sigla)</label>
+                </td>                
+            </tr>
+        }
+
+    </tbody>
+</table>

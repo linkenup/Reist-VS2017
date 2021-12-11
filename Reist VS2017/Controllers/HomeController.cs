@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Reist_VS2017.Models;
 
 namespace Reist_VS2017.Controllers
 {
@@ -13,7 +15,7 @@ namespace Reist_VS2017.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Hotel()
         {            
             ViewBag.Message = "Your application description page.";
 
@@ -22,7 +24,7 @@ namespace Reist_VS2017.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }

@@ -1,6 +1,6 @@
 ﻿.navbar-reist {
     background-color: #0c0235;
-    border-color: #080808;
+    border-color: #0c0235;
 }
 
     .navbar-reist .navbar-brand {
@@ -122,3 +122,4 @@
     .navbar-reist .btn-link[disabled]:focus,
     fieldset[disabled] .navbar-reist .btn-link:focus {
         color: #444;
+    }

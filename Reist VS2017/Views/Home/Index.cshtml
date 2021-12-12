@@ -2,13 +2,3 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    @using (Html.BeginForm("Listar", "Passagem", FormMethod.Get))
-    {
-        <input type="text" name="origem" placeholder="Informe a origem" />
-        <input type="text" name="destino" placeholder="Informe o destino" />
-        <input type="date" name="data" placeholder="Informe a data" />
-        <input type="submit" value="Enviar" class="btn btn-default" />
-    }
-</div>

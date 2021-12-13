@@ -24,14 +24,14 @@
         .navbar-reist .navbar-nav > li > a:hover,
         .navbar-reist .navbar-nav > li > a:focus {
             color: #fff;
-            background-color: transparent;
+            background-color: blue;
         }
 
     .navbar-reist .navbar-nav > .active > a,
     .navbar-reist .navbar-nav > .active > a:hover,
     .navbar-reist .navbar-nav > .active > a:focus {
         color: #fff;
-        background-color: #080808;
+        background-color: blue;
     }
 
     .navbar-reist .navbar-nav > .disabled > a,

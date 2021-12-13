@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Message - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/reist.css" />
@@ -11,23 +11,24 @@
 <body>
     <div class="navbar navbar-reist navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" style="height: 50px; display: flex; justify-content: center; align-items: center; margin-right:20px;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a href='@Url.Action("Index", "Home")'>
-                    <img src='@Url.Content("~/Content/Images/Reist_white.png")' style="height: 40px; margin:3px; object-fit: scale-down; " />
+                    <img src='@Url.Content("~/Content/Images/Reist_white.png")' style="height: 40px;" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Passagem", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Hotel", "Hotel", "Hotel")</li>
+                <ul class="nav navbar-nav navbar-left" style="display: flex; justify-content: center; align-items: center;">
+                    <li><a href='@Url.Action("Index", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Passagens</a></li>
+                    <li><a href='@Url.Action("Hotel", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Hospedagens</a></li>
+                    <li><a href='@Url.Action("Pacote", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Pacotes</a></li>
                     <li>@Html.ActionLink("Funcionário", "Index", new { area = "Funcionario", controller = "Home" })</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="display: flex; justify-content: center; align-items: center;">
                     <li>
                         @if (Session["name"] == null)
                         {
@@ -42,38 +43,10 @@
             </div>
         </div>
     </div>
-    <div style="background-image: url(../../Content/Images/aviao.jpg); height: 330px; width: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
-            <div class="container body-content">
-                <h1>Passagem</h1>
-                <h4>Faça uma busca e encontre a passagem ideal para você!</h4>
-                <div style="background-color: rgba(255, 255, 255, 0.70); border-radius: 10px; display: flex; justify-content: center; align-items: center; height:200px;">
-                    @using (Html.BeginForm("Listar", "Passagem", FormMethod.Get))
-                    {
-                    <div class="form-inline">
-                        <div class="form-group col-md-3" style="margin:20px">
-                            <label>Origem:</label>
-                            <input class="form-control" type="text" name="origem" placeholder="Informe a origem">
-                        </div>
-                        <div class="form-group col-md-3" style="margin:20px">
-                            <label>Destino:</label>
-                            <input class="form-control" type="text" name="destino" placeholder="Informe o destino">
-                        </div>
-                        <div class="form-group col-md-2" style="margin:20px">
-                            <label>Ida:</label>
-                            <input class="form-control" type="date" name="data" placeholder="Informe a data">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn" style="background-color: #44338F; color: #fff; margin-top: 50%; margin-left: 100%; ">Buscar</button>
-                        </div>
-                    </div>
-                    }
-                </div>
-                    </div>
-    </div>
+    @RenderBody()
     <div class="container body-content">
-        @RenderBody()
         <hr />
-        <footer>            
+        <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

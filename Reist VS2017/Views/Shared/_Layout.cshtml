@@ -7,25 +7,28 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/reist.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar navbar-reist navbar-fixed-top">
+    <div class="navbar navbar-reist navbar-fixed-top" style="font-family: 'Montserrat', sans-serif;">
         <div class="container">
-            <div class="navbar-header" style="height: 50px; display: flex; justify-content: center; align-items: center; margin-right:20px;">
+            <div class="navbar-header" style="height: 50px;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a href='@Url.Action("Index", "Home")'>
-                    <img src='@Url.Content("~/Content/Images/Reist_white.png")' style="height: 40px;" />
+                    <img src='@Url.Content("~/Content/Images/Reist_white.png")' style="height: 40px; margin: 5px;" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left" style="display: flex; justify-content: center; align-items: center;">
-                    <li><a href='@Url.Action("Index", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Passagens</a></li>
-                    <li><a href='@Url.Action("Hotel", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Hospedagens</a></li>
-                    <li><a href='@Url.Action("Pacote", "Home")' style="margin-left: 20px; padding: 5px; width:100px; background-color: #44338F; border-radius: 5px; text-align:center;">Pacotes</a></li>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Passagem", "Passagem", "Home")</li>
+                    <li>@Html.ActionLink("Hotel", "Hotel", "Home")</li>
+                    <li>@Html.ActionLink("Pacote", "Pacote", "Home")</li>
                     <li>@Html.ActionLink("Funcionário", "Index", new { area = "Funcionario", controller = "Home" })</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" style="display: flex; justify-content: center; align-items: center;">

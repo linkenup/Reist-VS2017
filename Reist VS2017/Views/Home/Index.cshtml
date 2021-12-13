@@ -2,32 +2,43 @@
     ViewBag.Title = "Passagens";
 }
 
-<div style="background-image: url(../../Content/Images/aviao.jpg); height: 400px; width: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; ">
+<div style="background-image: url(../../Content/Images/aviao.png); width: 100%; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; ">
     <div class="container body-content">
         <br />
-        <h1 style="color:#fff;">Passagens aéreas</h1>
-        <h4 style="color:#fff;">Faça uma busca e encontre a passagem ideal para você!</h4>
+        <h1 style="color: #fff; font-family: 'Montserrat Alternates', sans-serif;">Passagens aéreas</h1>
+        <h4 style="color: #fff; font-family: 'Montserrat', sans-serif;">Faça uma busca e encontre a passagem ideal para você!</h4>
         <br />
-        <div style="background-color: rgba(255, 255, 255, 0.70); border-radius: 20px; display: flex; justify-content: center; align-items: center; height: 200px; padding-bottom: 10px; padding-left: 10px;">
+        <div style="background-color: rgba(255, 255, 255, 0.70); border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-bottom: 50px; padding-bottom: 30px; padding-top: 20px; font-family: 'Montserrat', sans-serif;">
             @using (Html.BeginForm("Listar", "Passagem", FormMethod.Get))
             {
-                <div class="form-inline">
-                    <div class="form-group col-md-3" style="margin:20px;">
-                        <label>Origem:</label>
-                        <input class="form-control" type="text" name="origem" placeholder="Informe a origem" style="border-radius: 10px; border: none; ">
-                    </div>
-                    <div class="form-group col-md-3" style="margin:20px">
-                        <label>Destino:</label>
-                        <input class="form-control" type="text" name="destino" placeholder="Informe o destino" style=" border-radius: 10px; border: none;">
-                    </div>
-                    <div class="form-group col-md-2" style="margin:20px">
-                        <label>Ida:</label>
-                        <input class="form-control" type="date" name="data" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn" style="background-color: #44338F; color: #fff; margin-top: 60%; margin-left: 100%;">Buscar</button>
-                    </div>
+            <div class="form-inline">
+                <div class="form-group" style="margin:20px;">
+                    <label>Origem: </label>
+                    <input class="form-control" type="text" name="origem" placeholder="Informe a origem" style="border-radius: 10px; border: none; ">
                 </div>
+                <div class="form-group" style="margin:20px">
+                    <label>Destino: </label>
+                    <input class="form-control" type="text" name="destino" placeholder="Informe o destino" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="form-group" style="margin:20px">
+                    <label>Ida: </label>
+                    <input class="form-control" type="date" name="data" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="form-group" style="margin:20px">
+                    <label>Ida: </label>
+                    <input class="form-control" type="date" name="data" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="form-group" style="margin:20px">
+                    <label>Ida: </label>
+                    <input class="form-control" type="date" name="data" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="form-group" style="margin:20px">
+                    <label>Ida: </label>
+                    <input class="form-control" type="date" name="data" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <button type="submit" class="btn" style="background-color: #44338F; color: #fff; margin: 20px;">Buscar</button>
+            </div>
+
             }
         </div>
     </div>

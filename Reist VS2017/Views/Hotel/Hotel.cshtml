@@ -2,13 +2,45 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    @using (Html.BeginForm("ListarHotel", "Hotel", FormMethod.Get))
-    {
-        <input type="date" name="checkin" placeholder="Data de entrada" />
-        <input type="date" name="checkount" placeholder="Data de saída" />
-        <input type="text" name="destino" placeholder="Informe o lugar do hotel" />
-        <input type="submit" value="Enviar" class="btn btn-default" />
-    }
+<div style="background-image: url(../../Content/Images/aviao.png); width: 100%; padding-bottom:30px; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; ">
+    <div class="container body-content">
+        <br />
+        <h1 style="color: #fff; font-family: 'Montserrat Alternates', sans-serif;">Passagens aéreas</h1>
+        <h4 style="color: #fff; font-family: 'Montserrat', sans-serif;">Faça uma busca e encontre a passagem ideal para você!</h4>
+        <br />
+        <div style="background-color: rgba(255, 255, 255, 0.70); border-radius: 20px; padding: 30px; font-family: 'Montserrat', sans-serif;">
+            @using (Html.BeginForm("ListarHotel", "Hotel", FormMethod.Get))
+            {
+                <div class="row" style="">
+                    <div class="col">
+                        <label class="form-label">Origem: </label>
+                        <input class="form-control" type="text" name="origem" placeholder="Informe a origem" style="border-radius: 10px; border: none; ">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Destino: </label>
+                        <input class="form-control" type="text" name="destino" placeholder="Informe o destino" style="border-radius: 10px; border: none; ">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Ida: </label>
+                        <input class="form-control" type="date" name="dataida" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Volta: </label>
+                        <input class="form-control" type="date" name="datavolta" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Passageiros: </label>
+                        <input class="form-control" type="number" name="numero" placeholder="Número" min="1" style=" border-radius: 10px; border: none;">
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="checkvolta" checked="checked">
+                            <label class="form-check-label" for="checkvolta">Volta</label>
+                        </div>
+                        <button type="submit" class="btn" style="background-color: #44338F; color: #fff;">Buscar</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>

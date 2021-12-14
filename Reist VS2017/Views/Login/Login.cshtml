@@ -5,40 +5,43 @@
 }
 
 <div class="container body-content" style=" display: flex; justify-content: center; align-items: center; ">
-    <div style="background-color: #FBFAFF; height: 400px; width: 400px; box-shadow: 0px 4px 4px rgba(68, 51, 143, 0.46); border-radius: 10px; margin-top: 10%;">
+    <div style="background-color: #FBFAFF; width: 400px; box-shadow: 0px 6px 6px rgba(68, 51, 143, 0.6); border-radius: 10px; margin-top: 30px; padding: 20px;">
 
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-         {
+        {
             @Html.AntiForgeryToken()
+            <h2 class="d-flex justify-content-center">Login</h2>
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                <div class="form-group mb-3">
+                    <label class="form-label">Email: </label>
+                    <div class="col">
                         @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.senha, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                <div class="form-group mb-3">
+                    <div class="d-flex justify-content-between">
+                        <label class="form-label">Senha: </label>
+                        <a href="" style="color: #44338F;">Esqueceu a senha?</a>
+                    </div>
+                    <div class="col">
                         @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Entrar" class="btn btn-default" />
-                    </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn" style="background-color: #44338F; color: #fff;">Entrar</button>
                 </div>
             </div>
-         }
 
-        <div>
-            @Html.ActionLink("Cadastre-se", "CadastroCliente", "Cliente")
+
+        }
+
+        <div class="d-flex justify-content-center">
+            <a style="color: #44338F;" href="@Url.Action("CadastroCliente", "Cliente")">Cadastre-se</a>
         </div>
 
     </div>

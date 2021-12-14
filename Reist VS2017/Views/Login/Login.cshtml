@@ -5,12 +5,12 @@
 }
 
 <div class="container body-content" style=" display: flex; justify-content: center; align-items: center; ">
-    <div style="background-color: #FBFAFF; width: 400px; box-shadow: 0px 6px 6px rgba(68, 51, 143, 0.6); border-radius: 10px; margin-top: 30px; padding: 20px;">
+    <div style=" font-family: 'Montserrat', sans-serif; background-color: #FBFAFF; width: 400px; box-shadow: 0px 6px 6px rgba(68, 51, 143, 0.6); border-radius: 10px; margin-top: 30px; padding: 20px;">
 
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
-            <h2 class="d-flex justify-content-center">Login</h2>
+            <h2 class="d-flex justify-content-center" style="font-weight: 700;">Login</h2>
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -28,12 +28,12 @@
                         <a href="" style="color: #44338F;">Esqueceu a senha?</a>
                     </div>
                     <div class="col">
-                        @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
                         @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn" style="background-color: #44338F; color: #fff;">Entrar</button>
+                    <button type="submit" class="btn mb-1" style="background-color: #44338F; color: #fff;">Entrar</button>
                 </div>
             </div>
 

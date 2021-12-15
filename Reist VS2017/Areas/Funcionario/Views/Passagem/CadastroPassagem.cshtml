@@ -2,88 +2,65 @@
 
 @{
     Layout = "~/Areas/Funcionario/Views/Shared/_LayoutFun.cshtml";
+    ViewBag.Title = "Cadastro de Passagens";
 }
 
-@using (Html.BeginForm("Cadastrar", "Passagem", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>Cadastrar uma passagem</h4>
+<div style="background-color: rgba(0,0,0,0.01); border-radius: 10px; padding: 20px;">
+    @using (Html.BeginForm("Cadastrar", "Cliente", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h2 class="d-flex justify-content-center" style="font-weight: 700;">Cadastro de Passagens</h2>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.saida, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input class="form-control" type="date" name="saida" placeholder="Informe a data">
-                @Html.ValidationMessageFor(model => model.saida, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.chegada, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input class="form-control" type="date" name="chegada" placeholder="Informe a data">
-                @Html.ValidationMessageFor(model => model.chegada, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.origemtext, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="row g-3">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-6">
+                <label class="form-label">Origem: </label>
                 @Html.EditorFor(model => model.origemtext, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.origemtext, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.destinotext, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
+                <label class="form-label">Saída: </label>
+                <input class="form-control" type="date" name="saida" placeholder="Informe a data">
+                @Html.ValidationMessageFor(model => model.saida, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Destino: </label>
                 @Html.EditorFor(model => model.destinotext, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.destinotext, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.classe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
+                <label class="form-label">Chegada: </label>
+                <input class="form-control" type="date" name="chegada" placeholder="Informe a data">
+                @Html.ValidationMessageFor(model => model.chegada, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Empresa: </label>
+                @Html.EditorFor(model => model.empresa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.empresa, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Classe: </label>
                 @Html.DropDownListFor(model => model.classe, new SelectList(new List<string>(){
                             "","Econômica","Executiva"
                         }), new { @class = "form-select" })
                 @Html.ValidationMessageFor(model => model.classe, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.empresa, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.empresa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.empresa, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.assentos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.assentos, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-6">
+                <label class="form-label">Assentos: </label>
+                @Html.EditorFor(model => model.assentos, new { htmlAttributes = new { @class = "form-control", @min = "1" } })
                 @Html.ValidationMessageFor(model => model.assentos, "", new { @class = "text-danger" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.preco, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-6">
+                <label class="form-label">Preço: </label>
                 @Html.EditorFor(model => model.preco, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.preco, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <hr />
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn mb-1" style="background-color: #44338F; color: #fff;">Cadastrar</button>
         </div>
-    </div>
-}
+    }
+</div>

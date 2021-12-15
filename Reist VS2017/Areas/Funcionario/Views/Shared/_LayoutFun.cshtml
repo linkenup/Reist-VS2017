@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Reist</title>
+    <link rel="icon" href="~/Content/Images/Reist_icon_blue.png" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a href='@Url.Action("Index", "Home")'>
-                        <img src='@Url.Content("~/Content/Images/Reist_white.png")' style="height: 40px; margin-left: 10px;" />
+                        <img src='@Url.Content("~/Content/Images/Reist_white_cortada.png")' style="height: 40px; margin-left: 10px;" />
                     </a>
                 </li>
             </ul>
@@ -76,11 +77,11 @@
         </div>
     </nav>
 
-    <div class="container body-content">
+    <div class="container body-content mt-5">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - LinkenUp</p>
         </footer>
     </div>
 

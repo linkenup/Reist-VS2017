@@ -1,63 +1,60 @@
 ﻿@model Reist_VS2017.Models.Compra
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Pagamento";
 }
+<div class="container body-content">
 
-<h2>Dados do cartão</h2>
+    <div class="container body-content" style=" display: flex; justify-content: center; align-items: center; ">
+        <div style="font-family: 'Montserrat', sans-serif; background-color: #F6F6F6; width: 100%; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px; margin-top: 30px; padding: 20px; ">
 
-@using (Html.BeginForm("FinalizarHospedagem", "Compra", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Cartao</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.cartao.numero, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cartao.numero, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cartao.numero, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            @using (Html.BeginForm("FinalizarHospedagem", "Compra", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h2 class="d-flex justify-content-center" style="font-weight: 700;">Dados do cartão</h2>
+                <hr />
+                <div class="row g-3">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-8">
+                        <label class="form-label">Número do cartão: </label>
+                        @Html.EditorFor(model => model.cartao.numero, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cartao.numero, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Tipo: </label>
+                        @Html.DropDownListFor(model => model.cartao.tipo, new SelectList(new List<string>(){
+                            "","Crédito","Débito"
+                        }), new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.cartao.tipo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Bandeira: </label>
+                        @Html.DropDownListFor(model => model.cartao.bandeira, new SelectList(new List<string>(){
+                            "","Mastercard","Visa","American Express","Hipercard","Elo"
+                        }), new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.cartao.bandeira, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-8">
+                        <label class="form-label">Nome impresso: </label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Validade: </label>
+                        <input class="form-control" type="date" name="dataValidade" placeholder="Informe a data">
+                        @Html.ValidationMessageFor(model => model.cartao.validade, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Código de segurança: </label>
+                        @Html.EditorFor(model => model.cartao.codSeguranca, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                        @Html.ValidationMessageFor(model => model.cartao.codSeguranca, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.cartao.validade, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input class="form-control" type="date" name="dataValidade" placeholder="Informe a data">
-                @Html.ValidationMessageFor(model => model.cartao.validade, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cartao.codSeguranca, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cartao.codSeguranca, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cartao.codSeguranca, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cartao.tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cartao.tipo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cartao.tipo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cartao.bandeira, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cartao.bandeira, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cartao.bandeira, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn mb-1" style="background-color: #44338F; color: #fff;">Pagar</button>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-}
+</div>

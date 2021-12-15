@@ -17,7 +17,7 @@ namespace Reist_VS2017.Areas.Funcionario.Controllers
         public ActionResult Logout()
         {
             Session["name"] = null;
-            return RedirectToAction("Index", "Home", new { area = "Default" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
     }

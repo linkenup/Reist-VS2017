@@ -20,6 +20,10 @@ namespace Reist_VS2017.Models
         {
             using (Database DB = new Database())
             {
+                if (this.tipo == "Débito")
+                    this.tipo = "D";
+                if (this.tipo == "Crédito")
+                    this.tipo = "C";
                 var query = "call cadastrar_cartao(" + this.numero + ", '" + this.validade + "', " + this.codSeguranca + ", '" + this.tipo + "', '" + this.bandeira + "');";
                 MySqlCommand cmd = new MySqlCommand(query, DB.connection);
                 cmd.ExecuteNonQuery();

@@ -13,11 +13,32 @@ namespace Reist_VS2017.Models
         public string saida { get; set; }
         public Local origem { get; set; }
         public Local destino { get; set; }
+        public string origemtext { get; set; }
+        public string destinotext { get; set; }
         public string chegada { get; set; }
         public string classe { get; set; }
         public string empresa { get; set; }
         public int assentos { get; set; }
         public float preco { get; set; }
+
+        public void Inserir()
+        {
+            using (Database DB = new Database())
+            {
+                if (this.classe == "Econômica")
+                    this.classe = "1";
+                if (this.classe == "Executiva")
+                    this.classe = "2";
+
+
+                var query = "call cadastrar_passagem('" + this.saida + " 00:00:00', '" + this.chegada + " 00:00:00', '" + this.origemtext + "', '" + this.destinotext + "', " + this.assentos + ", " + this.classe + ", " + this.preco + ", '" + this.empresa + "');";
+
+                MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+                cmd.ExecuteNonQuery();
+
+                //return this;
+            }
+        }
 
         public List<Passagem> BuscarIda(string origem, string destino, string data, int passageiros)
         {

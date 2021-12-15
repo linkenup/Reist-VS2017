@@ -169,6 +169,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Funcionario\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Funcionario\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Funcionario\Controllers\PassagemController.cs" />
     <Compile Include="Areas\Funcionario\FuncionarioAreaRegistration.cs" />
     <Compile Include="Connection\Database.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
@@ -200,6 +202,7 @@
     <Content Include="Content\Images\aviao.jpg" />
     <Content Include="Content\Images\aviao.png" />
     <Content Include="Content\Images\Reist_white.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -214,6 +217,9 @@
     <Content Include="Areas\Funcionario\Views\Pacote\CadastroPacote.cshtml" />
     <Content Include="Areas\Funcionario\Views\Hotel\ConsultaHotel.cshtml" />
     <Content Include="Areas\Funcionario\Views\Hotel\CadastroHotel.cshtml" />
+    <Content Include="Areas\Funcionario\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Funcionario\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Funcionario\Views\Passagem\View.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -256,6 +262,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Funcionario\Models\" />
+    <Folder Include="Areas\Funcionario\Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

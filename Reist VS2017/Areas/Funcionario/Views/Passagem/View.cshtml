@@ -1,57 +1,39 @@
 ﻿@model Reist_VS2017.Models.Passagem
 
 @{
-    Layout = "~/Areas/Funcionario/Views/Shared/_LayoutFun.cshtml";
+    ViewBag.Title = "View";
 }
 
-@using (Html.BeginForm("Cadastrar", "Passagem", FormMethod.Post))
+<h2>View</h2>
+
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>Cadastrar uma passagem</h4>
+        <h4>Passagem</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.saida, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="form-control" type="date" name="saida" placeholder="Informe a data">
+                @Html.EditorFor(model => model.saida, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.saida, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        
-
         <div class="form-group">
             @Html.LabelFor(model => model.chegada, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="form-control" type="date" name="chegada" placeholder="Informe a data">
+                @Html.EditorFor(model => model.chegada, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.chegada, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.origemtext, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.origemtext, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.origemtext, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.destinotext, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.destinotext, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.destinotext, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.classe, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.classe, new SelectList(new List<string>(){
-                            "","Econômica","Executiva"
-                        }), new { @class = "form-select" })
+                @Html.EditorFor(model => model.classe, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.classe, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -87,3 +69,7 @@
         </div>
     </div>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -200,7 +200,6 @@
     <Content Include="Content\Images\aviao.jpg" />
     <Content Include="Content\Images\aviao.png" />
     <Content Include="Content\Images\Reist_white.png" />
-    <Content Include="Content\reist.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

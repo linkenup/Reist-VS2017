@@ -21,6 +21,7 @@ namespace Reist_VS2017.Controllers
         {
             if (cliente.Autenticar() == true)
             {
+                Session["cpf"] = cliente.cpf;
                 Session["name"] = cliente.nome;
                 return RedirectToAction("Index", "Home");
             }

@@ -4,38 +4,51 @@
     ViewBag.Title = "Consulta";
 }
 
-<h2>Registros de clientes no sistema!</h2>
+<br>
+<div class="container body-content">
+    <h2>Quartos do hotel em @Session["destino"]</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descricao)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.quantidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.descricao)
-                </td>
+                <th>
+                    <label>Nome</label>
+                </th>
+                <th>
+                    <label>Quantidade</label>
+                </th>
+                <th>
+                    <label>Descrição</label>
+                </th>
+                <th>
+                    <label>Diária</label>
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diaria)
+                    </td>
+                    <td style="text-align: right">
+                    <td style="text-align: right">
+                        <a type="button" class="btn btn-primary" href="@Url.Action("PagamentoHospedagem", "Compra", new { id = item.id })">Reservar</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

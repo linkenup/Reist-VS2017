@@ -172,6 +172,7 @@
     <Compile Include="Areas\Funcionario\FuncionarioAreaRegistration.cs" />
     <Compile Include="Connection\Database.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -181,14 +182,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cartao.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Local.cs" />
+    <Compile Include="Models\Pacote.cs" />
     <Compile Include="Models\Passagem.cs" />
     <Compile Include="Models\Quarto.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Viagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,7 +240,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Passagem\Passagem.cshtml" />
     <Content Include="Views\Passagem\ListarPassagem.cshtml" />
     <Content Include="Views\Hotel\ListarHotel.cshtml" />
     <Content Include="Views\Hotel\Hotel.cshtml" />
@@ -243,6 +247,12 @@
     <Content Include="Views\Pacote\ListarPacote.cshtml" />
     <Content Include="Views\Quarto\ListarQuarto.cshtml" />
     <Content Include="Views\Cliente\CadastroCliente.cshtml" />
+    <Content Include="Views\Home\NoResult.cshtml" />
+    <Content Include="Views\Passagem\ListarIdaVolta.cshtml" />
+    <Content Include="Views\Home\NoResultsHotel.cshtml" />
+    <Content Include="Views\Compra\Pagamento.cshtml" />
+    <Content Include="Views\Home\Sucesso.cshtml" />
+    <Content Include="Views\Compra\PagamentoHospedagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,10 +20,28 @@ namespace Reist_VS2017.Controllers
             return View();
         }
 
+        public ActionResult Sucesso()
+        {
+            //RunAsync().Wait();
+            return View();
+        }
+
         public ActionResult Hotel()
         {
             //ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+
+        public ActionResult NoResult()
+        {
+            //RunAsync().Wait();
+            return View();
+        }
+
+        public ActionResult NoHotel()
+        {
+            //RunAsync().Wait();
             return View();
         }
 

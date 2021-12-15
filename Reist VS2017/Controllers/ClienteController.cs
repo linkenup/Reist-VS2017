@@ -22,7 +22,7 @@ namespace Reist_VS2017.Controllers
         {
             c.nascimento = nascimento;
             c.Inserir();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Login");
         }
     }
 }

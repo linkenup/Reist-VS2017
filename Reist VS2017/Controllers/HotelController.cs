@@ -21,11 +21,20 @@ namespace Reist_VS2017.Controllers
         }
 
         [HttpGet]
-        public ActionResult ListarHotel(string checkin, string checkout, string destino)
+        public ActionResult ListarHotel(string checkin, string checkout, string destino, int quartos, int hospedes)
         {
+            Session["destino"] = destino;
+            Session["checkin"] = checkin;
+            Session["checkout"] = checkout;
+            Session["quartos"] = quartos;
+            Session["hospedes"] = hospedes;
+            var hoteis = hotel.Buscar(destino);
 
-            var passagens = hotel.Buscar(destino);
-            return View(passagens);
+            if (hoteis.Count <= 0)
+                return RedirectToAction("NoResult", "Home");
+            else
+                return View(hoteis);
+
         }
     }
 }

@@ -16,23 +16,23 @@
                 <div class="row" style="">
                     <div class="col">
                         <label class="form-label">Destino: </label>
-                        <input class="form-control" type="text" name="destino" placeholder="Informe o destino" style="border-radius: 10px; border: none; ">
+                        <input class="form-control" type="text" name="destino" placeholder="Informe o destino" value="@Session["destino"]" style="border-radius: 10px; border: none; ">
                     </div>
                     <div class="col">
                         <label class="form-label">Check-in: </label>
-                        <input class="form-control" type="date" name="dataida" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="date" name="checkin" placeholder="Informe a data" value="@Session["checkin"]" style=" border-radius: 10px; border: none;">
                     </div>
                     <div class="col">
                         <label class="form-label">Check-out: </label>
-                        <input class="form-control" type="date" name="datavolta" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="date" name="checkout" placeholder="Informe a data" value="@Session["checout"]" style=" border-radius: 10px; border: none;">
                     </div>
                     <div class="col">
                         <label class="form-label">Quartos: </label>
-                        <input class="form-control" type="number" name="numero" placeholder="Número" value="1" min="1" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="number" name="quartos" value="@Session["quartos"]" placeholder="Número" min="1" style=" border-radius: 10px; border: none;">
                     </div>
                     <div class="col">
                         <label class="form-label">Hóspedes: </label>
-                        <input class="form-control" type="number" name="numero" placeholder="Número" value="1" min="1" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="number" name="hospedes" value="@Session["hospedes"]" placeholder="Número" min="1" style=" border-radius: 10px; border: none;">
                     </div>
                     <div class="col">
                         <br />
@@ -44,35 +44,51 @@
     </div>
 </div>
 
-<h2>Registros de clientes no sistema!</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco.logradouro)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container body-content">
+    <br>
+    <h2>Resultados da busca</h2>
 
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nome)
-                </td>
-                <td>
-                    <label class="cpf">@Html.DisplayFor(modelItem => item.endereco.logradouro)</label>
-                </td>
-                <td style="text-align: right">
-                    <a type="button" class="btn btn-primary" target="_blank" href="@Url.Action("ListarQuarto", "Quarto", new { id = item.cnpj })">Ver Quartos</a>
-                </td>
+                <th>
+                    <label>Nome</label>
+                </th>
+                <th>
+                    <label>Logradouro</label>
+                </th>
+                <th>
+                    <label>Bairro</label>
+                </th>
+                <th>
+                    <label>Número</label>
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                    <td>
+                        <label class="cpf">@Html.DisplayFor(modelItem => item.endereco.logradouro)</label>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.endereco.bairro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.endereco.numero)
+                    </td>
+                    <td style="text-align: right">
+                        <a type="button" class="btn btn-primary" target="_blank" href="@Url.Action("ListarQuarto", "Quarto", new { id = item.cnpj })">Ver Quartos</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

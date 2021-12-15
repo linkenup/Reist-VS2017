@@ -1,7 +1,38 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Pacote";
 }
 
-<h2>Pacote</h2>
-
+<div style="background-image: url(../../Content/Images/aviao.png); width: 100%; padding-bottom:30px; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; ">
+    <div class="container body-content">
+        <br />
+        <h1 style="color: #fff; font-family: 'Montserrat Alternates', sans-serif;">Pacotes</h1>
+        <h4 style="color: #fff; font-family: 'Montserrat', sans-serif;">Faça uma busca e encontre o pacote ideal para você!</h4>
+        <br />
+        <div style="background-color: rgba(255, 255, 255, 0.70); border-radius: 20px; padding: 30px; font-family: 'Montserrat', sans-serif;">
+            @using (Html.BeginForm("ListarPacote", "Pacote", FormMethod.Get))
+            {
+            <div class="row" style="">
+                <div class="col mb-1">
+                    <label class="form-label">Origem: </label>
+                    <input class="form-control" type="text" name="origem" placeholder="Informe a origem" style="border-radius: 10px; border: none; ">
+                </div>
+                <div class="col mb-1">
+                    <label class="form-label">Destino: </label>
+                    <input class="form-control" type="text" name="destino" placeholder="Informe o destino" style="border-radius: 10px; border: none; ">
+                </div>
+                <div class="col mb-1">
+                    <label class="form-label">Ida: </label>
+                    <input class="form-control" type="date" name="dataida" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="col mb-1">
+                    <label class="form-label">Volta: </label>
+                    <input class="form-control" type="date" name="datavolta" id="volta" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                </div>
+                <div class="col mb-1">
+                    <button type="submit" class="btn" style="background-color: #44338F; color: #fff;">Buscar</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

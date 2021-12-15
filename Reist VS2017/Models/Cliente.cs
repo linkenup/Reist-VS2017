@@ -29,6 +29,13 @@ namespace Reist_VS2017.Models
 
             using (Database DB = new Database())
             {
+                if (this.sexo == "Masculino")
+                    this.sexo = "M";
+                if (this.sexo == "Feminino")
+                    this.sexo = "F";
+                if (this.sexo == "Prefiro não informar")
+                    this.sexo = "X";
+
                 var query = string.Format("call cadastrar_cliente({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', {7}, '{8}', " +
                     "'{9}', '{10}', '{11}','{12}');", this.cpf, this.nome, this.email, hash.Criptografar(this.senha), this.celular, this.sexo, this.nascimento,
                     this.endereco.cep, this.endereco.logradouro, this.endereco.bairro, this.endereco.cidade, this.endereco.uf, this.endereco.numero);
@@ -59,6 +66,8 @@ namespace Reist_VS2017.Models
                         this.senha = reader["senha"].ToString();
                         this.celular = reader["celular"].ToString();
                         this.sexo = reader["sexo"].ToString();
+                        if (this.sexo == "M")
+                            this.sexo = "Masculino";
 
                         Endereco enderecoObj = new Endereco();
 

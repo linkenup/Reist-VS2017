@@ -31,7 +31,7 @@
                     </div>
                     <div class="col mb-1">
                         <label class="form-label">Passageiros: </label>
-                        <input class="form-control" type="number" name="passageiros" placeholder="Número" value="@Session["passageiros"]" min="1" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="number" name="passageiros" value="@Session["passageitos"]" placeholder="Número" value="1" min="1" style=" border-radius: 10px; border: none;">
                     </div>
                     <div class="col mb-1">
                         <div class="form-check">
@@ -60,65 +60,6 @@
 
     <br>
     <h2>Resultados da busca</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>
-                    <label>Origem</label>
-                </th>
-                <th>
-                    <label>Destino</label>
-                </th>
-                <th>
-                    <label>Assentos</label>
-                </th>
-                <th>
-                    <label>Classse</label>
-                </th>
-                <th>
-                    <label>Preço</label>
-                </th>
-                <th>
-                    <label>Empresa</label>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.origem.sigla)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.destino.sigla)
-                </td>
-                <td>
-                    @if (item.assentos < 10)
-                    {
-                        <b style="color:red;">@Html.DisplayFor(modelItem => item.assentos)</b>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.assentos)
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.classe)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.preco)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.empresa)
-                </td>
-                <td style="text-align: right">
-                    <a type="button" class="btn btn-primary" href="@Url.Action("Pagamento", "Compra", new { id = item.id })">Comprar</a>
-                </td>
-            </tr>
-            }
-
-        </tbody>
-    </table>
+    <br>
+    <p>Nada foi encontrado. Tende mudar os dados da pesquisa.</p>
 </div>

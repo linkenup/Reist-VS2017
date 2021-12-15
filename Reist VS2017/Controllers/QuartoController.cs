@@ -19,7 +19,7 @@ namespace Reist_VS2017.Controllers
 
         public ActionResult ListarQuarto(long id)
         {
-            var quartos = quarto.ListarQuartos(id); 
+            var quartos = quarto.ListarQuartos(id, Session["checkin"].ToString(), Session["checkout"].ToString(), int.Parse(Session["hospedes"].ToString())); 
             return View(quartos);
         }
     }

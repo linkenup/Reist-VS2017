@@ -64,10 +64,12 @@
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">UF: </label>
-                        @Html.EditorFor(model => model.endereco.uf, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownListFor(model => model.endereco.uf, new SelectList(new List<string>(){
+                            "","AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"
+                        }), new { @class = "form-select" })
                         @Html.ValidationMessageFor(model => model.endereco.uf, "", new { @class = "text-danger" })
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <label class="form-label">Logradouro: </label>
                         @Html.EditorFor(model => model.endereco.logradouro, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.endereco.logradouro, "", new { @class = "text-danger" })

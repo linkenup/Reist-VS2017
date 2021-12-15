@@ -27,7 +27,7 @@
                     </div>
                     <div class="col mb-1">
                         <label class="form-label">Volta: </label>
-                        <input class="form-control" type="date" name="datavolta" id="volta" value="@Session["datavolta"]" placeholder="Informe a data" style=" border-radius: 10px; border: none;">
+                        <input class="form-control" type="date" name="datavolta" id="volta" value="@Session["datavolta"]" placeholder="Informe a data" style=" border-radius: 10px; border: none;" disabled>
                     </div>
                     <div class="col mb-1">
                         <label class="form-label">Passageiros: </label>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col mb-1">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="checkvolta" name="checkvolta" value="volta" checked>
+                            <input type="checkbox" class="form-check-input" id="checkvolta" name="checkvolta" value="volta">
                             <label class="form-check-label" for="checkvolta">Volta</label>
                         </div>
                         <button type="submit" class="btn" style="background-color: #44338F; color: #fff;">Buscar</button>
@@ -87,38 +87,59 @@
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.origem.sigla)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.destino.sigla)
-                </td>
-                <td>
-                    @if (item.assentos < 10)
-                    {
-                        <b style="color:red;">@Html.DisplayFor(modelItem => item.assentos)</b>
-                    }
-                    else
-                    {
-                        @Html.DisplayFor(modelItem => item.assentos)
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.classe)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.preco)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.empresa)
-                </td>
-                <td style="text-align: right">
-                    <a type="button" class="btn btn-primary" href="@Url.Action("Pagamento", "Compra", new { id = item.id })">Comprar</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.origem.sigla)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.destino.sigla)
+                    </td>
+                    <td>
+                        @if (item.assentos < 10)
+                        {
+                            <b style="color:red;">@Html.DisplayFor(modelItem => item.assentos)</b>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.assentos)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.classe)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.preco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.empresa)
+                    </td>
+                    <td style="text-align: right">
+                        <a type="button" class="btn btn-primary" href="@Url.Action("Pagamento", "Compra", new { id = item.id })">Comprar</a>
+                    </td>
+                </tr>
             }
 
         </tbody>
     </table>
+    @foreach (var item in Model)
+     {
+        <div style="background-color: rgba(0, 0, 0, 0.1); border-radius: 20px; padding: 30px; font-family: 'Montserrat', sans-serif; width: 100%; box-shadow: 0px 6px 6px rgba(68, 51, 143, 0.6); margin-top: 30px;">
+            <div class="row">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+                @Html.DisplayFor(modelItem => item.origem.sigla)
+                @Html.DisplayFor(modelItem => item.destino.sigla)
+
+                @Html.DisplayNameFor(model => model.assentos)
+                @Html.DisplayFor(modelItem => item.assentos)
+            </div>
+        </div>
+     }
 </div>

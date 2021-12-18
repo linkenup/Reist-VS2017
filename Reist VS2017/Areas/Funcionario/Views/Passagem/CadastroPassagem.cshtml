@@ -6,7 +6,7 @@
 }
 
 <div style="background-color: rgba(0,0,0,0.01); border-radius: 10px; padding: 20px;">
-    @using (Html.BeginForm("Cadastrar", "Passagem", FormMethod.Post))
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         <h2 class="d-flex justify-content-center" style="font-weight: 700;">Cadastro de Passagens</h2>
@@ -21,7 +21,8 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label">Saída: </label>
-                <input class="form-control" type="date" name="saida" placeholder="Informe a data">
+                <input class="form-control" type="date" name="saida" placeholder="Informe a data" value="@Session["saidacad"]">
+                <label style="color:red;">@Session["testedate"]</label>
                 @Html.ValidationMessageFor(model => model.saida, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-6">
@@ -37,6 +38,7 @@
             <div class="col-md-6">
                 <label class="form-label">Empresa: </label>
                 @Html.EditorFor(model => model.empresa, new { htmlAttributes = new { @class = "form-control" } })
+                <label style="color:red;">@Session["testeempresa"]</label>
                 @Html.ValidationMessageFor(model => model.empresa, "", new { @class = "text-danger" })
             </div>
             <div class="col-md-6">

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using Reist_VS2017.Connection;
 using MySql.Data.MySqlClient;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Reist_VS2017.Models
 {
@@ -15,11 +17,43 @@ namespace Reist_VS2017.Models
         public Local destino { get; set; }
         public string origemtext { get; set; }
         public string destinotext { get; set; }
-        public string chegada { get; set; }
+        public string chegada { get; set; } 
         public string classe { get; set; }
         public string empresa { get; set; }
         public int assentos { get; set; }
         public float preco { get; set; }
+
+        public bool TestarData(string data)
+        {
+            using (Database DB = new Database())
+            {
+                string query = "call verificar_data('"+data+"', @result); select @result; ";
+                var retorno = DB.ReturnCommand(query);
+                retorno.Read();
+                int result = int.Parse(retorno["@result"].ToString());
+
+                if (result == 1)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        public bool TestarEmpresa(string empresa)
+        {
+            using (Database DB = new Database())
+            {
+                string query = "call verificar_empresa('" + empresa + "', @result); select @result; ";
+                var retorno = DB.ReturnCommand(query);
+                retorno.Read();
+                int result = int.Parse(retorno["@result"].ToString());
+
+                if (result == 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
 
         public void Inserir()
         {
@@ -32,7 +66,6 @@ namespace Reist_VS2017.Models
 
 
                 var query = "call cadastrar_passagem('" + this.saida + " 00:00:00', '" + this.chegada + " 00:00:00', '" + this.origemtext + "', '" + this.destinotext + "', " + this.assentos + ", " + this.classe + ", " + this.preco + ", '" + this.empresa + "');";
-
                 MySqlCommand cmd = new MySqlCommand(query, DB.connection);
                 cmd.ExecuteNonQuery();
 
